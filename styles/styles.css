@@ -52,11 +52,11 @@ body {
   filter: brightness(0) invert(1);
 }
 
-.menu__item_active:hover {
+.menu__item_active {
   background: #5051f9;
 }
 
-.menu__item_active:hover img {
+.menu__item_active img {
   filter: brightness(0) invert(1);
 }
 
@@ -213,7 +213,6 @@ input::placeholder {
   background: rgb(237, 236, 254);
   text-align: center;
   margin-left: auto;
-
 
   border: none;
   cursor: pointer;
