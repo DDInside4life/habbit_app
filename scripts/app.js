@@ -77,7 +77,7 @@ function rerenderContent(activeHabbit) {
     }</div>
               <div class="habbit__comment">${activeHabbit.days[index].comment}
               </div>
-              <button class="habbit__delete " onclick = "deleteDay (${index})">
+              <button class="habbit__delete " onclick = "deleteDay(${index})">
                 <img src="/images/icons/delete.svg" alt="${index + 1}" />
               </button>`;
     page.content.daysContainer.appendChild(element);
@@ -125,8 +125,19 @@ function addDays(event) {
   saveData();
 }
 
-function deleteDaya(event) {
-    
+function deleteDay(index) {
+  habbits = habbits.map((habbit) => {
+    if (habbit.id === globalActiveHabbitId) {
+      habbit.days.splice(index, 1);
+      return {
+        ...habbit,
+        days: habbit.days,
+      };
+    }
+    return habbit;
+  });
+  rerender(globalActiveHabbitId);
+  saveData();
 }
 
 // init
@@ -134,8 +145,3 @@ function deleteDaya(event) {
   loadData();
   rerender(habbits[0].id);
 })();
-
-
-
-// theory
-
